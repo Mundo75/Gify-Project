@@ -15,7 +15,19 @@ $(document).ready(function() {
         console.log(response);
     })
     //set up array of baseball teams to use as starting set-up for page
+    var teams = ["arizona diamondbacks", "new york yankees", "seattle mariners", "cincinnati reds", "miami marlins", "tampa bay rays", "minnesota twins", "san diego padres", "texas rangers", "kansas city royals"];
     //loop through baseball array, adding buttons to html using jquery
+
+    function initialSetup () {
+        for (var i = 0 ; i < teams.length; i++) {
+
+            var newButton = $("<button>");
+            newButton.addClass(teamName);
+            newButton.addClass("data-name", teams[i]);
+            newButton.addClass(teams[i]);
+            $("#teamButtons").append(newButton);
+        }
+    }
     //set up event listener on button click to and new buttons form team names added via the html form field submit button
     //write cote to parse JSON data and append the gif images to the HTML
     //set up code to play/pause gifs as clicked
