@@ -1,3 +1,7 @@
+body {
+    background-color: gray;
+
+}
 .navbar {
     height: 70px;
     background-color: #17005b;
@@ -14,6 +18,10 @@
     font-family: 'Baloo+Chettan', cursive;
     color: white;
     padding: 0px 0px 0px 120px;
+}
+
+#sidePannel {
+    border-right: #17005b double 2px;
 }
 
 #topRow {
@@ -36,4 +44,12 @@
 #card3{ 
    
     
+}
+
+.teamName {
+    width: 175px;
+    margin-top: 20px;
+    background-color: #17005b;
+    color: white;
+    padding: 5px;
 }
