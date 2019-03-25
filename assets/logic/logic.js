@@ -52,20 +52,37 @@ $(document).ready(function() {
             
                 var url1 = teamInfo[i].images.fixed_height.url;
                 var url2 = teamInfo[i].images.fixed_height_still.url;
-
-                var teamGif = $("<img>").attr("src", url1);
-                //teamGif.attr("src", still);
-                //teamGif.attr("data-still", still);
-                //teamGif.attr("data-animate", animated);
-                //teamGif.attr("data-state", "still");
-                //teamGif.addClass("teamImage");
+                
+                //Look at pausing gifs activity for adding attributes to image elements to control animation
+                var teamGif = $("<img>");
+                teamGif.attr("src", url2);
+                teamGif.attr("data-still", url2);
+                teamGif.attr("data-animate", url1);
+                teamGif.attr("data-state", "still");
+                teamGif.addClass("teamImage");
     
                 teamCard.append(teamGif);
                 $("#gifSpace1").append(teamCard);
 
-                
+            
 
             };
+
+            //look at pausing gifs activity for conditional code for animating gifs
+
+            $(document).on("click", ".teamImage", function() {
+                var state = $(this).attr("data-state");
+  
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                }
+                else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                }
+
+            });
 
         });
 
