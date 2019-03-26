@@ -40,15 +40,30 @@ body {
     width: 90%;
     height: 100%;
     margin-top: 100px;
+    margin-left: 20px;
     
    
     
    
 
 }
+
+.card {
+    height: 350px;
+    position: inherit;
+    display: inline-block;
+    margin: 20px 10px 10px 25px;
+}
+
+.card-text {
+    height: 100%;
+    font-weight: bold;
+    padding: 0px 0px 0px 10px;
+}
+
 .teamImage {
     height: 220px;
-    width: 310px;
+    width: 16.5rem;
     float: right;
     border: solid #17005b 3px;
     position: inherit;

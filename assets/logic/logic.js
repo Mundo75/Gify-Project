@@ -31,6 +31,8 @@ $(document).ready(function() {
     //write cote to parse JSON data and append the gif images to the HTML
     $(document).on("click", ".teamName", function() {
 
+        $("#gifSpace1").empty();
+
         var apiKeyParameter =   "aEI26EVtx20kHGGHabgtZjXbZwtnPvot";
         var mainURL =           "https://api.giphy.com/v1/gifs/search?"
         var searchParameter =   $(this).attr("data-name");
@@ -49,12 +51,17 @@ $(document).ready(function() {
             for (var i = 0; i < teamInfo.length; i++) {
 
                 var teamCard = $("<div>");
+                teamCard.addClass("card");
+                teamCard.attr("style", "width: 18rem");
+                
             
                 var url1 = teamInfo[i].images.fixed_height.url;
                 var url2 = teamInfo[i].images.fixed_height_still.url;
+                var text = teamInfo[i].slug;
                 
                 //Look at pausing gifs activity for adding attributes to image elements to control animation
                 var teamGif = $("<img>");
+                teamGif.addClass("card-img-top");
                 teamGif.attr("src", url2);
                 teamGif.attr("data-still", url2);
                 teamGif.attr("data-animate", url1);
@@ -63,8 +70,15 @@ $(document).ready(function() {
     
                 teamCard.append(teamGif);
                 $("#gifSpace1").append(teamCard);
-
-            
+                var teamCardBody = $("<div>")
+                teamCardBody.addClass("card-body");
+                teamCard.append(teamCardBody);
+                var teamCardText = $("<p>");
+                teamCardText.addClass("card-text");
+                teamCardText.text("Caption:  " + teamCardText);
+                teamCard.append(teamCardText);
+                teamCardText.append(text.slice(0, 24));
+                
 
             };
 
@@ -90,6 +104,6 @@ $(document).ready(function() {
 
         
         
-    //set up code to play/pause gifs as clicked
+    
 
 });
