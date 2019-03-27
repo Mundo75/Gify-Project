@@ -7,6 +7,7 @@ $(document).ready(function() {
     function initialSetup () {
 
         $("#teamButtons").empty();
+        
 
         for (var i = 0 ; i < teams.length; i++) {
 
@@ -23,8 +24,13 @@ $(document).ready(function() {
 
         event.preventDefault();
 
-        var baseballTeam = $("#teamInput").val().trim();
-        teams.push(baseballTeam);
+        var baseballTeam = $("#teamInput").eq(0).val().trim();
+        
+        if (baseballTeam.length > 2) {
+            teams.push(baseballTeam);
+        }
+    
+        //teamInput.val(" ");
         initialSetup();
     })
     
